@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+
+
+class Day {
+private:
+    int day;
+    int month;
+    int years;
+
+public:
+    Day(int h, int m, int s);
+
+    int GetDays() const;
+    int GetMonths() const;
+    int Getyears() const;
+};
+
+
+Day::Day(int a, int b, int c) {
+
+    if (a > 1970 && a<2099) {
+        years = a;
+    }
+    else years = 1970;
+
+
+
+    if (b < 12 && b > 0) {
+        month = b;
+    }
+    else month = 1;
+
+
+    if (c > 0 && c < 31) {
+        day = c;
+    }
+    else day = 1;
+}
+
+    
+    int Day::GetDays() const {
+        return day;
+    }
+
+    
+    int Day::GetMonths() const {
+        return month;
+    }
+
+   
+    int Day::Getyears() const {
+        return years;
+    }
+    
+
+    int DayBinara (int days,int months,int years) {
+        int first;
+        int second;
+        int three;
+        cout << "enter original day: "<<endl;
+        cin >> first;
+        cout << "enter original month: " << endl;
+        cin >> second;
+        cout << "enter original year: " << endl << endl;
+        cin >> three;
+        int a = first - days;
+        int b = second - months;
+        int c = three - years;
+        cout << "difference by: "<<endl << a << " days" << endl << b << " months"<<endl << c << " years" << endl<<endl;
+        cout << "total number of days" << endl << a + b * 30 + c * 365;
+        return 1;
+    }
+
+
+
+int main() {
+    int a;
+    int b;
+    int c;
+    cout << "enter year"<<endl;
+    cin >> a;
+    cout << "enter month"<<endl;
+    cin >> b;
+    cout << "enter day"<<endl;
+    cin >> c;
+	Day d(a,b,c);
+    cout << "day: " << d.GetDays()<<endl<< "monyh: " << d.GetMonths() <<endl<< "YEARS: " << d.Getyears()<<endl<<endl;
+    cout<<DayBinara(d.GetDays(), d.GetMonths(), d.Getyears());
+
+}
